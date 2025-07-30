@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+    What learnt so far:-
+        1. React = External library that helps us create websites easier
+        2. Load the react external library
+        3. Set up react and use .render()
+        4. reviewed the basics of html and js
+        5. jsx = enhanced version of javascript
+        6. created elements directly with jsx
+        7. Insert values into jsx elements
+
+-->
+
+<!-- React => External Library that helps us create websites easier
+    1. React is an external library
+    2. React helps us creates websites easier
+-->
+
+
+<head>
+    <title>React Basics</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+        // jsx = JavaScript XML, React is an enhanced version of JavaScript
+
+        const button = <button>Hello</button>
+        const paragraph = <p>Paragraph of Text</p>;
+        // We cannot put create multiple html elements in a single variable and we can't pass multiple variables to .render function;
+        // So for the solution we use div, same as the HTML it contains multiple html elements and we can just pass a single div to .render function to make react render all the html elements at once
+        const div = (
+            <div>
+                <button>Hello</button>
+                <p>Paragraph of Text {2 + 2} The content inside the brackets will be treated as JavaScript code</p>;
+            </div>
+        ); //code cleaup => Put Html in its own line and jsx in its own line
+
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(div);
+    </script>
+</body>
+ 
+</html>
