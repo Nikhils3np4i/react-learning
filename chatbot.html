@@ -27,26 +27,44 @@
             return (
                 //we don't need a closing tag for input in HTML but JSX is strict about closing all the tags that we used, but we do have a self closing tag shortcut in jsx for closing a tag.
                 <>
-                    <input placeholder="Send a message to Chatbot" size="30"/>
+                    <input placeholder="Send a message to Chatbot" size="30" />
                     <button>Send</button>
                 </> // fragment, instead of using a div coz using extra div inserts an extra div and at the end these will become a lot of div elements in our website
             );
-        }   
+        }
 
-        function ChatMessage() {
+        function ChatMessage(props) { // props => Properties
+            const message = props.message;
+            const sender = props.sender;
+
+            // const { message } = props; //destructuring
+
+            if (sender === 'robot') {
+                return (
+                    <div>
+                        <img src="./bot.png" width="50" />
+                        {message}
+                    </div>
+                );
+            }
             return (
                 <div>
-                    hello chatbot
-                    <img src="./user.png" width="50"/>
+                    {message}
+                    <img src="./user.png" width="50" />
                 </div>
             );
 
         }
+        // Components are designed be reusable
+
 
         const App = (
             <>
                 <ChatInput />
-                <ChatMessage />
+                <ChatMessage message="hello chatbot" sender="user" />
+                <ChatMessage message="Hello! How can i help you?" sender="robot" />
+                <ChatMessage message="can you get me todays date?" sender="user" />
+                <ChatMessage message="Today is september 27" sender="robot" />
             </>
         )
 
