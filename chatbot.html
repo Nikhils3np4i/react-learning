@@ -33,22 +33,24 @@
             );
         }
 
-        function ChatMessage(props) { // props => Properties
-            const message = props.message;
-            const sender = props.sender;
+        function ChatMessage({ message, sender }) { // props => Properties
+            // const message = props.message;
+            // const sender = props.sender;
 
-            // const { message } = props; //destructuring
+            //const { message, sender } = props; //destructuring, shortcut for upper two variables both of these does the same thing
 
-            if (sender === 'robot') {
-                return (
-                    <div>
-                        <img src="./bot.png" width="50" />
-                        {message}
-                    </div>
-                );
-            }
+            // if (sender === 'robot') {
+            //     return (
+            //         <div>
+            //             <img src="./bot.png" width="50" />
+            //             {message}
+            //         </div>
+            //     );
+            // }
+            // Guard Operator (&&)
             return (
                 <div>
+                    {sender === 'robot' && <img src="./bot.png" width="50" />}
                     {message}
                     <img src="./user.png" width="50" />
                 </div>
