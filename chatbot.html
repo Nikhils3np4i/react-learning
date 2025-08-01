@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Components => a piece of the website
+ 
+    # While building websites:
+        - it's better to split up the website into pieces
+        - So we can work on a small piece of the website at a time.
+
+
+-->
+
 <head>
     <title>Chatbot</title>
 </head>
@@ -13,8 +22,34 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
+
+        function ChatInput() { // in react the component name must start with a capital letter.
+            return (
+                //we don't need a closing tag for input in HTML but JSX is strict about closing all the tags that we used, but we do have a self closing tag shortcut in jsx for closing a tag.
+                <>
+                    <input placeholder="Send a message to Chatbot" size="30"/>
+                    <button>Send</button>
+                </> // fragment, instead of using a div coz using extra div inserts an extra div and at the end these will become a lot of div elements in our website
+            );
+        }   
+
+        function ChatMessage() {
+            return (
+                <>
+                    
+                </>
+            );
+
+        }
+
+        const App = (
+            <>
+                <ChatInput />
+            </>
+        )
+
         const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render('Welcome to SuperSimpleDev React Course');
+        ReactDOM.createRoot(container).render(App);
     </script>
 </body>
 
